@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Goods
+  m_EditorClassIdentifier: 
+  m_GroupName: Goods
+  m_Data:
+    m_SerializedData: []
+  m_GUID: eb4b45d5797da7d4e81392a60f34da24
+  m_SerializeEntries:
+  - m_GUID: 029c1e5e5ad90cf4395c497f4b415a7d
+    m_Address: Mushrooms
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 029c1e5e5ad90cf4395c497f4b415a7d, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 029c1e5e5ad90cf4395c497f4b415a7d, type: 3}
+  - m_GUID: 2385fe24172bfd04cb4f91e3a2fcec38
+    m_Address: Wheat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 2385fe24172bfd04cb4f91e3a2fcec38, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 2385fe24172bfd04cb4f91e3a2fcec38, type: 3}
+  - m_GUID: 693c29d29af92464fbaf53f956b3bfea
+    m_Address: Corn
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 693c29d29af92464fbaf53f956b3bfea, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 693c29d29af92464fbaf53f956b3bfea, type: 3}
+  - m_GUID: e6663ed643365074ab533cff769066be
+    m_Address: Butter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: e6663ed643365074ab533cff769066be, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: e6663ed643365074ab533cff769066be, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f30f89c236ff00448a39c30ef1a71e45, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b528fb8f40b48c74b9d01654d555a908, type: 2}
+    - {fileID: 11400000, guid: 2bf05094e99eb424e93dcb0bbb6b5535, type: 2}

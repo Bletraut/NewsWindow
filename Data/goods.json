@@ -1,0 +1,13 @@
+{
+    "goods": [
+        {
+            "GoodsName": "Corn",
+            "GoodsCount": 50,
+            "GoodsPrice": 100,
+            "GoodsImage": "Corn",
+            "UserName": "PolarisF",
+            "UserLevel": 1,
+            "UserImage": "http://c.fundux.ru/user/ava/user4135.jpg"
+        }
+    ]
+}

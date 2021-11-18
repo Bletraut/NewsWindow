@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
 
 using TMPro;
 
@@ -32,12 +33,16 @@ public class Goods : MonoBehaviour
         transform.localScale = Vector3.one;
     }
 
-    public void SetData(GoodsData goodsData)
+    public async void SetData(GoodsData goodsData)
     {
         goodsName.text = goodsData.GoodsName;
         goodsCount.text = $"x{goodsData.GoodsCount}";
         goodsPrice.text = $"{goodsData.GoodsPrice}";
-        //GoodsImage.sprite = ???;
+        //goodsImage.sprite = ???;
+
+        var handle = Addressables.LoadAssetAsync<Sprite>("Corn");
+        await handle.Task;
+        goodsImage.sprite = handle.Result;
 
         userName.text = goodsData.UserName;
         userLevel.text = $"{goodsData.UserLevel}";

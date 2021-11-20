@@ -30,8 +30,8 @@ public class NewsWindow : MonoBehaviour
 
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
-                var goodsList = JsonUtility.FromJson<List<GoodsData>>(webRequest.downloadHandler.text);
-                Debug.Log(goodsList.Count);
+                var goodsList = JsonUtility.FromJson<DataArray<GoodsData>>(webRequest.downloadHandler.text).Items;
+                Debug.Log(goodsList.Length);
             }
             else
             {
@@ -50,4 +50,10 @@ public class NewsWindow : MonoBehaviour
             }
         }
     }
+}
+
+[System.Serializable]
+public class DataArray<T>
+{
+    public T[] Items;
 }

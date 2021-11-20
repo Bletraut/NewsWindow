@@ -52,6 +52,7 @@ public class Goods : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public struct GoodsData
 {
     public string GoodsName;
@@ -81,17 +82,4 @@ public struct GoodsData
                 + $" GoodsPrice={GoodsPrice} GoodsImage={GoodsImage},"
                 + $" UserName={UserName}, UserLevel = {UserLevel}, UserImage={UserImage} }}";
     }
-
-    private const string symbols = "ABCDEFJHIJKLMNOPQRSTUVWXYZ0123456789";
-    public static GoodsData Random => new GoodsData()
-    {
-        GoodsName = new string(symbols.OrderByDescending(n => UnityEngine.Random.value).Take(UnityEngine.Random.Range(1, 10)).ToArray()),
-        GoodsCount = UnityEngine.Random.Range(1, 100),
-        GoodsPrice = UnityEngine.Random.Range(1, 1000),
-        GoodsImage = new string(symbols.OrderByDescending(n => UnityEngine.Random.value).ToArray()),
-
-        UserName = new string(symbols.OrderByDescending(n => UnityEngine.Random.value).Take(UnityEngine.Random.Range(1, 10)).ToArray()),
-        UserLevel = UnityEngine.Random.Range(1, 100),
-        UserImage = new string(symbols.OrderByDescending(n => UnityEngine.Random.value).ToArray())
-    };
 }

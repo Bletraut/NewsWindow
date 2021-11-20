@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -24,6 +25,8 @@ public class Goods : MonoBehaviour
     private TMP_Text userLevel;
     [SerializeField]
     private Image userImage;
+    [SerializeField]
+    private Sprite defaultUserSprite;
 
     public void Hide()
     {
@@ -43,12 +46,28 @@ public class Goods : MonoBehaviour
 
         userName.text = goodsData.UserName;
         userLevel.text = $"{goodsData.UserLevel}";
+        StartCoroutine(LoadUserImage(goodsData.UserImage));
         //UserImage.sprite = ???;
     }
 
     private void GoodsImage_Loaded(AsyncOperationHandle<Sprite> obj)
     {
         goodsImage.sprite = obj.Result;
+    }
+    private IEnumerator LoadUserImage(string imageLink)
+    {
+        userImage.sprite = defaultUserSprite;
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(imageLink))
+        {
+            webRequest.downloadHandler = new DownloadHandlerTexture(true);
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                var texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
+                userImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+            }
+        }
     }
 }
 

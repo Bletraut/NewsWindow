@@ -106,8 +106,14 @@ namespace Bletraut.Graphics.UI
         public void OnEndDrag(PointerEventData eventData)
         {
             isDrag = false;
-            var dragValue = eventData.position - startDragPos;
-            SwipePage(new Vector2(Mathf.Sign(dragValue.x), 0));
+
+            var scrollValue = (float)System.Math.Round(scrollRect.horizontalNormalizedPosition, 3);
+            var isMoved = scrollValue != 0 && scrollValue != 1;
+            if (isMoved)
+            {
+                var dragValue = eventData.position - startDragPos;
+                SwipePage(new Vector2(Mathf.Sign(dragValue.x), 0));
+            }
         }
 
         // ScrollRect methods

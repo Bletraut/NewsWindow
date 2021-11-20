@@ -12,14 +12,12 @@ public class NewsWindow : MonoBehaviour
     [SerializeField]
     private PagedScrollRect pagedScroll;
 
-    private List<GoodsData> goodsData = new List<GoodsData>();
+    private GoodsData[] goodsData;
     private string goodsDataLink = "https://raw.githubusercontent.com/Bletraut/NewsWindow/main/Data/goods.json";
 
     void Start()
     {
         StartCoroutine(LoadGoodsData(goodsDataLink));
-
-        //pagedScroll.ItemsCount = goodsData.Count;
     }
 
     private IEnumerator LoadGoodsData(string dataLink)
@@ -30,8 +28,8 @@ public class NewsWindow : MonoBehaviour
 
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
-                var goodsList = JsonUtility.FromJson<DataArray<GoodsData>>(webRequest.downloadHandler.text);
-                Debug.Log(goodsList);
+                goodsData = JsonUtility.FromJson<GoodsArray<GoodsData>>(webRequest.downloadHandler.text).Goods;
+                pagedScroll.ItemsCount = goodsData.Length;
             }
             else
             {
@@ -50,10 +48,19 @@ public class NewsWindow : MonoBehaviour
             }
         }
     }
+
+    public void Close()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 }
 
 [System.Serializable]
-public class DataArray<T>
+public class GoodsArray<T>
 {
     public T[] Goods;
 }

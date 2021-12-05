@@ -147,7 +147,7 @@ namespace Bletraut.Graphics.UI
             }
         }
 
-        // Pages methods
+        // Page methods
         private bool canLoadNextPage => CurrentPageIndex < MaxPageIndex - 1;
         private bool canLoadPrevPage => CurrentPageIndex > 0;
         private void LoadNextPage()

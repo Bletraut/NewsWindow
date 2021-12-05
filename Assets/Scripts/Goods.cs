@@ -28,15 +28,6 @@ public class Goods : MonoBehaviour
     [SerializeField]
     private Sprite defaultUserSprite;
 
-    public void Hide()
-    {
-        transform.localScale = Vector3.zero;
-    }
-    public void Show()
-    {
-        transform.localScale = Vector3.one;
-    }
-
     public void SetData(GoodsData goodsData)
     {
         goodsName.text = goodsData.GoodsName;
@@ -47,7 +38,6 @@ public class Goods : MonoBehaviour
         userName.text = goodsData.UserName;
         userLevel.text = $"{goodsData.UserLevel}";
         StartCoroutine(LoadUserImage(goodsData.UserImage));
-        //UserImage.sprite = ???;
     }
 
     private void GoodsImage_Loaded(AsyncOperationHandle<Sprite> obj)
